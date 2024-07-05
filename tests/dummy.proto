@@ -1,0 +1,24 @@
+syntax = "proto3";
+package dummy;
+
+import "google/protobuf/wrappers.proto";
+
+enum Code {
+  CODE_UNSPECIFIED = 0;
+  CODE_ABSTRACT = 1;
+  CODE_CONCRETE = 2;
+  CODE_BOTH = 3;
+  CODE_INVALID = 4;
+}
+
+message I64Range {
+  int64 start = 1;
+  int64 end = 2;
+}
+
+message Dummy {
+  repeated I64Range ranges = 1;
+  map<string, Code> codes = 2;
+  optional double number = 3;
+  google.protobuf.BoolValue is_random = 4;  // Should be like "optional bool"
+}

@@ -19,3 +19,29 @@ dynamic = ["version", "description"]
 
 [project.urls]
 Home = "https://github.com/danilobellini/dynagrpc"
+
+[tool.pytest.ini_options]
+addopts = "--cov=dynagrpc"
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+precision = 2
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py{37,38,39,310,311,312,313}
+skip_missing_interpreters = True
+
+[testenv]
+deps =
+  coverage[toml]
+  grpcio-tools
+  pytest
+  pytest-cov
+commands =
+  python -m pytest {posargs}
+"""
