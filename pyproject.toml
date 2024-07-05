@@ -11,6 +11,10 @@ classifiers = [
   "License :: OSI Approved :: Apache Software License",
   "Operating System :: OS Independent",
 ]
+dependencies = [
+  "protobuf",
+  "typing_extensions;python_version=='3.7'",
+]
 dynamic = ["version", "description"]
 
 [project.urls]
