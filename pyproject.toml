@@ -12,6 +12,7 @@ classifiers = [
   "Operating System :: OS Independent",
 ]
 dependencies = [
+  "grpcio-tools",
   "protobuf",
   "typing_extensions;python_version=='3.7'",
 ]
@@ -39,7 +40,6 @@ skip_missing_interpreters = True
 [testenv]
 deps =
   coverage[toml]
-  grpcio-tools
   pytest
   pytest-cov
 commands =
