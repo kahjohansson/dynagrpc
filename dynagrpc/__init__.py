@@ -436,7 +436,7 @@ class GrpcServer(GrpcServiceBase):
         ----------
         name :
             Optional gRPC command name. When left undefined,
-            it should be detected from the wrapped function mame.
+            it should be detected from the wrapped function name.
         request_name :
             Name of the gRPC request message to be used as input.
             Defaults to the command name with a ``Request`` suffix.
