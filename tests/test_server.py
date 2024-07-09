@@ -1,7 +1,10 @@
+import pytest
+
 from dynagrpc import GrpcServer, GrpcTestClient
 
 
-def test_add():
+@pytest.mark.parametrize("first,second,expected", [(5, 7, 12), (6, -9, -3), (-1, -3, -4)])
+def test_add(first, second, expected):
     server = GrpcServer("tests", "Maths", "maths")
 
     @server.rpc()
@@ -9,4 +12,4 @@ def test_add():
         return first + second
 
     client = GrpcTestClient(server)
-    assert client.add(first=5, second=7) == {"result": 12}
+    assert client.add(first=first, second=second) == {"result": expected}
